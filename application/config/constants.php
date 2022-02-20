@@ -102,4 +102,10 @@ defined('PATH_JS')                OR define('PATH_JS', PATH . '/assets/js/');
 defined('PATH_SCSS')              OR define('PATH_SCSS', PATH . '/assets/scss/');
 defined('PATH_VENDORS')           OR define('PATH_VENDORS', PATH . '/assets/vendors/');
 
+defined('PATH_CSSLOGIN')          OR define('PATH_CSSLOGIN', PATH . '/assets/login/css/');
+defined('PATH_FONTSLOGIN')        OR define('PATH_FONTSLOGIN', PATH . '/assets/login/fonts/');
+defined('PATH_IMGLOGIN')          OR define('PATH_IMGLOGIN', PATH . '/assets/login/images/');
+defined('PATH_JSLOGIN')           OR define('PATH_JSLOGIN', PATH . '/assets/login/js/');
+defined('PATH_SCSSLOGIN')         OR define('PATH_SCSSLOGIN', PATH . '/assets/login/scss/');
+
 //defined('PATH_FONTSAWESOME')             OR define('PATH_FONTSAWESOME', PATH . '/assets/font-awesome/');
