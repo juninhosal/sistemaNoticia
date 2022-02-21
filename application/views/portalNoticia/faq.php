@@ -177,8 +177,8 @@
 						</p>
 						<BR/>
 						<p class="mb-0" style="color: #ff0000 !important;">
-							REGEXP serve para trazer as informações exatas que você está procurando, já o LIKE irá trazer todas as informações que
-							contem aquela palavra procurada
+							LIKE é mais comumente utilizado pela comunidade e mais fácil de se trabalhar em equipe, REGEX utiliza uma linguagem de expressão regular não tão conhecida dentre os desenvolvedores, no entanto, as duas podem ser usadas para um mesmo propósito de pesquisa por sentença
+							LIKE é mais rápido caso seja utilizado em apenas uma condição de banco, enquanto o REGEXP é mais rápido caso seja utilizado em multiplas condições
 						</p>
 						<hr/>
 					</div>

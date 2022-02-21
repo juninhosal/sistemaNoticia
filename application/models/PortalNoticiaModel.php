@@ -60,4 +60,19 @@ class PortalNoticiaModel extends MY_Model {
 		return ($ret);
 	}
 
+	public function getNoticiaPorNome($busca){
+		$ret = $this->db->query("
+		 SELECT 
+		 	 idNoticia
+		 	,nome
+		 	,descricao
+		 FROM
+			noticia
+		 WHERE 
+		 nome like '%$busca%'
+		")->result_array();
+
+		return ($ret);
+	}
+
 }

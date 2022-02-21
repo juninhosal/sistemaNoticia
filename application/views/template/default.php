@@ -40,8 +40,23 @@
 					<div class="navbar-top">
 						<div class="d-flex justify-content-between align-items-center">
 							<ul class="navbar-top-left-menu">
+
 							</ul>
 							<ul class="navbar-top-right-menu">
+								<li class="nav-item">
+									<a class="nav-link" data-widget="navbar-search" href="#" role="button">
+										<i class="fas fa-search"></i>
+									</a>
+									<div class="navbar-search-block">
+										<form class="form-inline" method="post" action="<?= site_url('PortalNoticia/NoticiaCategoria')?>">
+											<div class="input-group input-group-sm">
+												<input class="form-control form-control-navbar" name="search" type="search" placeholder="Search" aria-label="Search">
+												<div class="input-group-append">
+												</div>
+											</div>
+										</form>
+									</div>
+								</li>
 								<li class="nav-item">
 									<a href="<?= site_url("Login")?>" class="nav-link">Login</a>
 								</li>
@@ -119,7 +134,7 @@
 					<div class="d-flex align-items-center">
 						<span class="badge badge-dark mr-3"><a href="<?= site_url('PortalNoticia/FAQ')?>">Respostas</a></span>
 						<p class="mb-0">
-							Click em "Respostas" para verificar o questionario enviado.
+							Click para ver as respostas do questionario!
 						</p>
 					</div>
 					<div class="d-flex">

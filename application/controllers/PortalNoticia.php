@@ -20,11 +20,24 @@ class PortalNoticia extends MY_Controller{
 		));
 	}
 
-	public function NoticiaCategoria($idCategoria){
+	public function NoticiaCategoria($idCategoria = null){
+		$busca = addslashes( $this->input->post("search"));
 		$categoria 			= $this->CategoriaModel->getCategorias();
 		$ultimasCategorias	= $this->PortalNoticiaModel->getUltimasCategorias();
 		$ultimasNoticias 	= $this->PortalNoticiaModel->getUltimasNoticias();
-		$noticiaCategoria 	= $this->PortalNoticiaModel->getNoticiaPorCategoria($idCategoria);
+		if(!empty($busca)){
+			$noticiaCategoria 	= $this->PortalNoticiaModel->getNoticiaPorNome($busca);
+		}else{
+			$noticiaCategoria 	= $this->PortalNoticiaModel->getNoticiaPorCategoria($idCategoria);
+		}
+
+		if(empty($noticiaCategoria)){
+			$noticiaCategoria[0] = array(
+				'nome' => "Noticia não encontrada",
+				'descricao' => "Noticia não encontrada com a palavra pesquisada, por favor, tentar novamente!"
+
+			);
+		}
 
 		$this->template->load('default','portalNoticia/noticiaPorCategoria',array(
 			'categoria' 		=> $categoria,
