@@ -8,3 +8,5 @@ Esse sistema precisa possuir as seguintes páginas/funções.
 2. Cadastro de notícia (Nome, Categoria, Descrição)
 3. Home (Mostrar todas as notícias cadastrada)
 4. Busca (Usuário pode buscar uma notícia por palavra-chave)
+
+SQL da criação do banco se encontra no diretorio aplication->SQL->noticias.sql
