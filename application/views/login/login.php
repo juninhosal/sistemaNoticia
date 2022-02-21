@@ -48,9 +48,9 @@
 
 							</div>
 
-							<?php if (!empty($_SESSION['login'])) { ?>
-								<div class="alert alert-<?= $_SESSION['login']['tipo'] ?>" role="alert" style="text-align: center">
-									<?php echo $_SESSION['login']['msg']; ?>
+							<?php if (!empty($retorno['msg'])) { ?>
+								<div class="alert alert-<?= $retorno['msg']['class'] ?>" role="alert" style="text-align: center">
+									<?php echo $retorno['msg']['msg']; ?>
 								</div>
 							<?php } ?>
 

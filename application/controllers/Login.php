@@ -2,9 +2,14 @@
 
 class Login extends MY_Controller{
 
+	public function __construct() {
+		parent::__construct();
+		$this->load->model("LoginModel");
+	}
 
 	public function index() {
-		$this->load->view('login/login');
+		$retorno = $this->getErro();
+		$this->load->view('login/login',array('retorno' => $retorno));
 	}
 
 	/**
@@ -15,14 +20,6 @@ class Login extends MY_Controller{
 	 */
 
 	public function logar() {
-		if (!empty($_SESSION['id'])) {
-
-			redirect('Login');
-			exit(0);
-
-		}
-		$_SESSION['login']['msg'] = null;
-		$_SESSION['login']['tipo'] = null;
 		@session_start();
 		$usuario = addslashes($this->input->post("username"));
 		$senha = addslashes($this->input->post("password"));
@@ -30,27 +27,35 @@ class Login extends MY_Controller{
 
 		if (!empty($usuario) && !empty($senha)) {
 
-			$usuario = $this->BancoModel->UsuarioExists($usuario, $senhaCrip);
+			$usuario = $this->LoginModel->UsuarioExists($usuario, $senhaCrip);
 
 			if (!empty($usuario)) {
-				$_SESSION['id'] = $usuario->idUsuario;
-				$_SESSION['user'] = $usuario->login;
-				redirect('Login');
-				exit(0);
+				$_SESSION['id'] = $usuario["idUsuario"];
+				$_SESSION['user'] = $usuario["username"];
+
+				redirect('Categoria');
 			} else {
-				$_SESSION['login'] = array(
-					'tipo' => "danger",
-					'msg' => "Usuário ou Senha, inválido! Por Favor, verifique suas informações e tente novamente.",
+				$msg = array(
+					"class"     => "danger",
+					"msg"  => "<strong> Usuário ou Senha, inválido! Por Favor, verifique suas informações e tente novamente. </strong>"
 				);
+				$mensagem = array(
+					'msg' => $msg,
+				);
+
+				$this->setErro($mensagem);
 			}
 		} else {
-			$_SESSION['login'] = array(
-				'tipo' => "warning",
-				'msg' => "Usuário ou Senha não especificado.",
+			$msg = array(
+				"class"     => "warning",
+				"msg"  => "<strong> Usuário ou Senha não especificado! </strong>"
 			);
+			$mensagem = array(
+				'msg' => $msg,
+			);
+
+			$this->setErro($mensagem);
 		}
-
-
 		redirect('Login');
 		exit(0);
 

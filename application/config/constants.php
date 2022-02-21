@@ -101,6 +101,9 @@ defined('PATH_IMG')               OR define('PATH_IMG', PATH . '/assets/images/'
 defined('PATH_JS')                OR define('PATH_JS', PATH . '/assets/js/');
 defined('PATH_SCSS')              OR define('PATH_SCSS', PATH . '/assets/scss/');
 defined('PATH_VENDORS')           OR define('PATH_VENDORS', PATH . '/assets/vendors/');
+defined('PATH_DATATABLE')         OR define('PATH_DATATABLE', PATH . '/assets/datatable/');
+defined('PATH_BOOTSTRAP')         OR define('PATH_BOOTSTRAP', PATH . '/assets/bootstrap/');
+defined('PATH_FONTAWESOME')       OR define('PATH_FONTAWESOME', PATH . '/assets/fontawesome/');
 
 defined('PATH_CSSLOGIN')          OR define('PATH_CSSLOGIN', PATH . '/assets/login/css/');
 defined('PATH_FONTSLOGIN')        OR define('PATH_FONTSLOGIN', PATH . '/assets/login/fonts/');
@@ -108,4 +111,5 @@ defined('PATH_IMGLOGIN')          OR define('PATH_IMGLOGIN', PATH . '/assets/log
 defined('PATH_JSLOGIN')           OR define('PATH_JSLOGIN', PATH . '/assets/login/js/');
 defined('PATH_SCSSLOGIN')         OR define('PATH_SCSSLOGIN', PATH . '/assets/login/scss/');
 
-//defined('PATH_FONTSAWESOME')             OR define('PATH_FONTSAWESOME', PATH . '/assets/font-awesome/');
+//Path adminlet
+defined('PATH_ADMINLET')               OR define('PATH_ADMINLET', PATH . '/assets/adminlte/');

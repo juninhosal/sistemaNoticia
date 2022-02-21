@@ -55,4 +55,29 @@ class MY_Controller extends CI_Controller {
         return 'Login';
     }
     //ERROS
+
+	//USO DE SESSÃO PARA CONTROLES DE ERROS
+	public function setErro($data)
+	{
+		$this->session->set_userdata('flashData', json_encode($data));
+	}
+
+	public function getErro()
+	{
+		$ret = json_decode($this->session->userdata('flashData'), TRUE);
+		$this->session->unset_userdata('flashData');
+		return $ret;
+	}
+
+	protected function apenasAjax(){
+		if(
+			!(
+				!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+				strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'
+			)
+		) {
+			return FALSE;
+		}
+		return TRUE;
+	}
 }

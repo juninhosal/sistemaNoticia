@@ -2,6 +2,10 @@
 
 class LoginModel extends MY_Model {
 
+	public function __construct() {
+		parent::__construct();
+	}
+
 	/**
 	 * @Method retornarIdGrupo
 	 * @param array $usuario , $senhaCrip verificar o usuario e senha cadastrado no banco
@@ -10,18 +14,16 @@ class LoginModel extends MY_Model {
 	 */
 	public function usuarioExists($usuario, $senhaCrip = null) {
 
+		$ret = $this->db->query("
+		 SELECT 
+		 	 idUsuario
+		 	,username
+		 FROM
+			usuario
+		 WHERE 
+			password = '$senhaCrip'
+		")->row_array();
 
-		$this->db->select(array(
-
-			'idUsuario', 'login'));
-
-		$this->db->from('usuario');
-		$this->db->where('login', $usuario);
-		if (!empty($senhaCrip)) {
-			$this->db->where('senha', $senhaCrip);
-		}
-		$query = $this->db->get();
-		$ret = $query->row();
 		return ($ret);
 	}
 

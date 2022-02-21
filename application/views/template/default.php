@@ -6,12 +6,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<title>World Time</title>
+
+	<!-- plugin css for this page -->
+	<link rel="stylesheet" href="<?= PATH_VENDORS . 'aos/dist/aos.css/aos.css' . VERSION_EXT; ?>" />
+
 	<!-- plugin css for this page -->
 	<link
 		rel="stylesheet"
 		href="<?= PATH_VENDORS . 'mdi/css/materialdesignicons.min.css' . VERSION_EXT; ?>"
 	/>
-	<link rel="stylesheet" href="<?= PATH_VENDORS . '/aos/dist/aos.css/aos.css' . VERSION_EXT; ?>" />
+	<link rel="stylesheet" href="<?= PATH_VENDORS . 'aos/dist/aos.css/aos.css' . VERSION_EXT; ?>" />
 
 	<!-- End plugin css for this page -->
 	<link rel="shortcut icon" href="<?= PATH_IMG . 'favicon.png' . VERSION_EXT; ?>" />
@@ -19,6 +23,11 @@
 	<!-- inject:css -->
 	<link rel="stylesheet" href="<?= PATH_CSS . 'style.css' . VERSION_EXT; ?>">
 	<!-- endinject -->
+
+	<!-- fontawesome -->
+	<link href="<?= PATH_FONTAWESOME . 'css/all.css' . VERSION_EXT; ?>" rel="stylesheet">
+	<script src="<?= PATH_FONTAWESOME . 'js/all.js' . VERSION_EXT; ?>"></script>
+
 </head>
 
 <body>
@@ -328,7 +337,7 @@
 <!-- End plugin js for this page -->
 <!-- Custom js for this page-->
 <script src="<?= PATH_JS . 'demo.js' . VERSION_EXT; ?>"></script>
-<script src="<?= PATH_JS . 'jquery.easeScroll.js' . VERSION_EXT; ?>"></script>
 <!-- End custom js for this page-->
+
 </body>
 </html>
