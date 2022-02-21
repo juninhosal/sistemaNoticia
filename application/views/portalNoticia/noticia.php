@@ -40,31 +40,10 @@
 					<div class="navbar-top">
 						<div class="d-flex justify-content-between align-items-center">
 							<ul class="navbar-top-left-menu">
-								<li class="nav-item">
-									<a href="pages/index-inner.html" class="nav-link">Advertise</a>
-								</li>
-								<li class="nav-item">
-									<a href="pages/aboutus.html" class="nav-link">About</a>
-								</li>
-								<li class="nav-item">
-									<a href="#" class="nav-link">Events</a>
-								</li>
-								<li class="nav-item">
-									<a href="#" class="nav-link">Write for Us</a>
-								</li>
-								<li class="nav-item">
-									<a href="#" class="nav-link">In the Press</a>
-								</li>
 							</ul>
 							<ul class="navbar-top-right-menu">
 								<li class="nav-item">
-									<a href="#" class="nav-link"><i class="mdi mdi-magnify"></i></a>
-								</li>
-								<li class="nav-item">
-									<a href="#" class="nav-link">Login</a>
-								</li>
-								<li class="nav-item">
-									<a href="#" class="nav-link">Sign in</a>
+									<a href="<?= site_url("Login")?>" class="nav-link">Login</a>
 								</li>
 							</ul>
 						</div>
@@ -72,27 +51,27 @@
 					<div class="navbar-bottom">
 						<div class="d-flex justify-content-between align-items-center">
 							<div>
-								<a class="navbar-brand" href="#"
-								><img src="assets/images/logo.svg" alt=""
+								<a class="navbar-brand" href="<?= site_url("PortalNoticia")?>"
+								><img src="assets/images/logo.svg" alt="World Time"
 									/></a>
 							</div>
 							<div>
 								<button
-										class="navbar-toggler"
-										type="button"
-										data-target="#navbarSupportedContent"
-										aria-controls="navbarSupportedContent"
-										aria-expanded="false"
-										aria-label="Toggle navigation"
+									class="navbar-toggler"
+									type="button"
+									data-target="#navbarSupportedContent"
+									aria-controls="navbarSupportedContent"
+									aria-expanded="false"
+									aria-label="Toggle navigation"
 								>
 									<span class="navbar-toggler-icon"></span>
 								</button>
 								<div
-										class="navbar-collapse justify-content-center collapse"
-										id="navbarSupportedContent"
+									class="navbar-collapse justify-content-center collapse"
+									id="navbarSupportedContent"
 								>
 									<ul
-											class="navbar-nav d-lg-flex justify-content-between align-items-center"
+										class="navbar-nav d-lg-flex justify-content-between align-items-center"
 									>
 										<li>
 											<button class="navbar-close">
@@ -100,45 +79,29 @@
 											</button>
 										</li>
 										<li class="nav-item active">
-											<a class="nav-link" href="index.html">Home</a>
+											<a class="nav-link" href="<?= site_url("PortalNoticia")?>">Home</a>
 										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="pages/magazine.html">MAGAZINE</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="pages/business.html">Business</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="pages/sports.html">Sports</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="pages/art.html">Art</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="pages/politics.html">POLITICS</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="pages/travel.html">Travel</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="pages/contactus.html">Contact</a>
-										</li>
+										<?php foreach ($ultimasCategorias AS $item){ ?>
+											<li class="nav-item">
+												<a class="nav-link" href="pages/magazine.html"><?= $item['nomeCategoria'] ?></a>
+											</li>
+										<?php }?>
 									</ul>
 								</div>
 							</div>
 							<ul class="social-media">
 								<li>
-									<a href="#">
-										<i class="mdi mdi-facebook"></i>
+									<a href="https://br.linkedin.com/company/easyworkoutsourcing">
+										<i class="mdi mdi-linkedin"></i>
 									</a>
 								</li>
 								<li>
-									<a href="#">
+									<a href="">
 										<i class="mdi mdi-youtube"></i>
 									</a>
 								</li>
 								<li>
-									<a href="#">
+									<a href="">
 										<i class="mdi mdi-twitter"></i>
 									</a>
 								</li>
@@ -174,18 +137,9 @@
 							<div class="card-body">
 								<h2>Category</h2>
 								<ul class="vertical-menu">
-									<li><a href="#">Politics</a></li>
-									<li><a href="#">International</a></li>
-									<li><a href="#">Finance</a></li>
-									<li><a href="#">Health care</a></li>
-									<li><a href="#">Technology</a></li>
-									<li><a href="#">Jobs</a></li>
-									<li><a href="#">Media</a></li>
-									<li><a href="#">Administration</a></li>
-									<li><a href="#">Sports</a></li>
-									<li><a href="#">Game</a></li>
-									<li><a href="#">Art</a></li>
-									<li><a href="#">Kids</a></li>
+									<?php foreach ($categoria AS $item){ ?>
+									<li><a href="#"><?= $item['nomeCategoria'] ?></a></li>
+									<?php }?>
 								</ul>
 							</div>
 						</div>
@@ -198,9 +152,9 @@
 										<div class="position-relative">
 											<div class="rotate-img">
 												<img
-														src="assets/images/dashboard/home_4.jpg"
-														alt="thumb"
-														class="img-fluid"
+													src="assets/images/dashboard/home_4.jpg"
+													alt="thumb"
+													class="img-fluid"
 												/>
 											</div>
 											<div class="badge-positioned">
@@ -215,9 +169,6 @@
 											South Korea’s Moon Jae-in sworn in vowing to address
 											North
 										</h2>
-										<div class="fs-13 mb-2">
-											<span class="mr-2">Photo </span>10 Minutes ago
-										</div>
 										<p class="mb-0">
 											Lorem Ipsum has been the industry's standard dummy
 											text ever since the 1500s, when an
@@ -230,9 +181,9 @@
 										<div class="position-relative">
 											<div class="rotate-img">
 												<img
-														src="assets/images/dashboard/home_5.jpg"
-														alt="thumb"
-														class="img-fluid"
+													src="assets/images/dashboard/home_5.jpg"
+													alt="thumb"
+													class="img-fluid"
 												/>
 											</div>
 											<div class="badge-positioned">
@@ -246,9 +197,6 @@
 										<h2 class="mb-2 font-weight-600">
 											No charges over 2017 Conservative battle bus cases
 										</h2>
-										<div class="fs-13 mb-2">
-											<span class="mr-2">Photo </span>10 Minutes ago
-										</div>
 										<p class="mb-0">
 											Lorem Ipsum has been the industry's standard dummy
 											text ever since the 1500s, when an
@@ -261,9 +209,9 @@
 										<div class="position-relative">
 											<div class="rotate-img">
 												<img
-														src="assets/images/dashboard/home_6.jpg"
-														alt="thumb"
-														class="img-fluid"
+													src="assets/images/dashboard/home_6.jpg"
+													alt="thumb"
+													class="img-fluid"
 												/>
 											</div>
 											<div class="badge-positioned">
@@ -277,9 +225,6 @@
 										<h2 class="mb-2 font-weight-600">
 											Kaine: Trump Jr. may have committed treason
 										</h2>
-										<div class="fs-13 mb-2">
-											<span class="mr-2">Photo </span>10 Minutes ago
-										</div>
 										<p class="mb-0">
 											Lorem Ipsum has been the industry's standard dummy
 											text ever since the 1500s, when an
@@ -303,24 +248,22 @@
 						<div class="col-sm-5">
 							<img src="assets/images/logo.svg" class="footer-logo" alt="" />
 							<h5 class="font-weight-normal mt-4 mb-5">
-								Newspaper is your news, entertainment, music fashion website. We
-								provide you with the latest breaking news and videos straight from
-								the entertainment industry.
+
 							</h5>
 							<ul class="social-media mb-3">
 								<li>
-									<a href="#">
+									<a href="https://br.linkedin.com/company/easyworkoutsourcing">
+										<i class="mdi mdi-linkedin"></i>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<i class="mdi mdi-twitch"></i>
+									</a>
+								</li>
+								<li>
+									<a href="">
 										<i class="mdi mdi-facebook"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="mdi mdi-youtube"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="mdi mdi-twitter"></i>
 									</a>
 								</li>
 							</ul>
@@ -333,9 +276,9 @@
 										<div class="row">
 											<div class="col-3">
 												<img
-														src="assets/images/dashboard/home_1.jpg"
-														alt="thumb"
-														class="img-fluid"
+													src="assets/images/dashboard/home_1.jpg"
+													alt="thumb"
+													class="img-fluid"
 												/>
 											</div>
 											<div class="col-9">
@@ -354,9 +297,9 @@
 										<div class="row">
 											<div class="col-3">
 												<img
-														src="assets/images/dashboard/home_2.jpg"
-														alt="thumb"
-														class="img-fluid"
+													src="assets/images/dashboard/home_2.jpg"
+													alt="thumb"
+													class="img-fluid"
 												/>
 											</div>
 											<div class="col-9">
@@ -375,9 +318,9 @@
 										<div class="row">
 											<div class="col-3">
 												<img
-														src="assets/images/dashboard/home_3.jpg"
-														alt="thumb"
-														class="img-fluid"
+													src="assets/images/dashboard/home_3.jpg"
+													alt="thumb"
+													class="img-fluid"
 												/>
 											</div>
 											<div class="col-9">
@@ -393,52 +336,13 @@
 						</div>
 						<div class="col-sm-3">
 							<h3 class="font-weight-bold mb-3">CATEGORIES</h3>
-							<div class="footer-border-bottom pb-2">
-								<div class="d-flex justify-content-between align-items-center">
-									<h5 class="mb-0 font-weight-600">Magazine</h5>
-									<div class="count">1</div>
+							<?php foreach ($ultimasCategorias AS $item){ ?>
+								<div class="footer-border-bottom pb-2">
+									<div class="d-flex justify-content-between align-items-center">
+										<h5 class="mb-0 font-weight-600"><?= $item['nomeCategoria'] ?></h5>
+									</div>
 								</div>
-							</div>
-							<div class="footer-border-bottom pb-2 pt-2">
-								<div class="d-flex justify-content-between align-items-center">
-									<h5 class="mb-0 font-weight-600">Business</h5>
-									<div class="count">1</div>
-								</div>
-							</div>
-							<div class="footer-border-bottom pb-2 pt-2">
-								<div class="d-flex justify-content-between align-items-center">
-									<h5 class="mb-0 font-weight-600">Sports</h5>
-									<div class="count">1</div>
-								</div>
-							</div>
-							<div class="footer-border-bottom pb-2 pt-2">
-								<div class="d-flex justify-content-between align-items-center">
-									<h5 class="mb-0 font-weight-600">Arts</h5>
-									<div class="count">1</div>
-								</div>
-							</div>
-							<div class="pt-2">
-								<div class="d-flex justify-content-between align-items-center">
-									<h5 class="mb-0 font-weight-600">Politics</h5>
-									<div class="count">1</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="footer-bottom">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="d-sm-flex justify-content-between align-items-center">
-								<div class="fs-14 font-weight-600">
-									© 2020 @ <a href="https://www.bootstrapdash.com/" target="_blank" class="text-white"> BootstrapDash</a>. All rights reserved.
-								</div>
-								<div class="fs-14 font-weight-600">
-									Handcrafted by <a href="https://www.bootstrapdash.com/" target="_blank" class="text-white">BootstrapDash</a>
-								</div>
-							</div>
+							<?php }?>
 						</div>
 					</div>
 				</div>

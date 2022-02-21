@@ -3,136 +3,44 @@
 		   href="<?= site_url('Noticia'); ?>">Voltar</a>
 </div>
 <div style="padding-top: 50px"></div>
-<form id="FormEnviar" method="post" action="<?= site_url('Noticia/cadastrar') ?>">
-	<?php if(!empty($retorno['retorno'])){ ?>
-		<div class="box-body">
+<?php if(empty($dadosNoticia)){ ?>
+<form id="FormEnviar" method="post" action="<?= site_url('Noticia/cadastrar')?>">
+<?php } else { ?>
+<form id="FormEnviar" method="post" action="<?= site_url('Noticia/cadastrar/') . $dadosNoticia[0]['idNoticia'] ?>">
+	<?php }?>
+		<div class="box-body row">
 			<div class="container">
 				<div class="table-responsive">
-					<table id="tabela">
-						<tbody class="row">
-						<tr style="display: none">
-							<td>
-								<div class="col-md-10 col-xs-10 col-lg-10">
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Nome da notícia" name="noticia[]"
-											   style="width: 850px; margin-top: 2%"/>
-									</div>
-									<div class="form-group">
-										<div class="form-group">
-											<label>Minimal</label>
-											<select class="form-control select2" style="width: 100%;">
-												<option selected="selected">Alabama</option>
-												<option>Alaska</option>
-												<option>California</option>
-												<option>Delaware</option>
-												<option>Tennessee</option>
-												<option>Texas</option>
-												<option>Washington</option>
-											</select>
-										</div>
-									</div>
-								</div>
-							</td>
-							<td>
-								<div class="col-lg-2 col-sm-2 col-md-2">
-									<button type="button"
-											class="btn btn-danger btn-sm remove"><i class="fa fa-trash" aria-hidden="true"></i></button>
-								</div>
-							</td>
-						</tr>
-						<?php $i = 0;
-						foreach ($retorno['retorno'] as $dados){ $i += 1?>
-							<tr>
-								<td>
-									<div class="col-md-10 col-xs-10 col-lg-10">
-										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Categoria" name="categoria[]" value="<?= $dados['nomeCategoria'] ?>"
-												   style="width: 850px; margin-top: 2%"/>
-										</div>
-									</div>
-								</td>
-								<td>
-									<?php if($i == 1){ ?>
-										<div class="col-lg-2 col-sm-2 col-md-2">
-											<button type="button" id="plus"
-													class="btn btn-success btn-sm "><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
-										</div>
-									<?php }else{?>
-										<div class="col-lg-2 col-sm-2 col-md-2">
-											<button type="button"
-													class="btn btn-danger btn-sm remove"><i class="fa fa-trash" aria-hidden="true"></i></button>
-										</div>
-									<?php } ?>
+					<div class="col-md-6 col-xs-6 col-lg-6">
+						<label>Nome</label>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Nome" name="nome" value="<?= !empty($dadosNoticia[0]['nome']) ? $dadosNoticia[0]['nome'] : null ?>"  maxlength="250"/>
+						</div>
+					</div>
+					<div class="col-md-6 col-xs-6 col-lg-6">
+						<label>Categoria</label>
+						<div class="form-group" style="width: 250px; margin-top: 2%">
+							<select class="form-control select2" name="categoria">
+								<option selected="selected"
+										value="">Selecionar</option>
+								<?php
+								foreach((!empty($dadosSelect) ? $dadosSelect : array()) AS $value) {
+									?>
+									<option value="<?= $value['idCategoria'] ?>" <?= ($dadosNoticia[0]['idCategoria'] == $value['idCategoria']) ? 'selected' : null;?>><?= $value['nomeCategoria'] ?></option>
+									<?php
+								}
+								?>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-12 col-xs-12 col-lg-12">
+						<label>Descrição</label>
+						<textarea class="form-control" rows="3" placeholder="Descrição" name="descricao"><?= !empty($dadosNoticia[0]['descricao']) ? $dadosNoticia[0]['descricao'] : null ?></textarea>
+					</div>
 
-								</td>
-							</tr>
-						<?php } ?>
-						</tbody>
-					</table>
 				</div>
 			</div>
 		</div>
-	<?php }else{ ?>
-		<div class="box-body">
-			<div class="container">
-				<div class="table-responsive">
-					<table id="tabela">
-						<tbody class="row">
-						<tr style="display: none">
-							<td>
-								<div class="col-md-10 col-xs-10 col-lg-10">
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Categoria" name="categoria[]" maxlength="250"
-											   style="width: 850px; margin-top: 2%"/>
-									</div>
-								</div>
-							</td>
-							<td>
-								<div class="col-lg-2 col-sm-2 col-md-2">
-									<button type="button"
-											class="btn btn-danger btn-sm remove"><i class="fa fa-trash" aria-hidden="true"></i></button>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div class="col-md-6 col-xs-6 col-lg-6">
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Categoria" name="categoria[]" maxlength="250"
-											   style="margin-top: 2%"/>
-									</div>
-								</div>
-							</td>
-							<td>
-							<div class="col-md-6 col-xs-6 col-lg-6">
-								<div class="form-group">
-									<select class="form-control select2" style="width: 500px; margin-top: 2%">
-										<option selected="selected"
-												value="">Selecionar</option>
-										<?php
-										foreach((!empty($regiao) ? $regiao : array()) AS $value) {
-											?>
-											<option value="<?= $value['idRegiao'] ?>" <?= ($retorno['regiao'] == $value['regiao']) ? 'selected' : null;?>><?= $value['regiao'] ?></option>
-											<?php
-										}
-										?>
-									</select>
-								</div>
-							</div>
-							</td>
-							<td>
-								<div class="col-lg-2 col-sm-2 col-md-2">
-									<button type="button" id="plus"
-											class="btn btn-success btn-sm "><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
-								</div>
-							</td>
-						</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-	<?php } ?>
 		<div class="col-lg-12 col-sm-12 col-md-12" style="margin-top:2%; text-align: center">
 			<button type="button" class="btn btn-success btn-sm" onclick="confirmar()">salvar</button>
 		</div>

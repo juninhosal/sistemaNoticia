@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-lg-12 col-sm-12 col-md-12">
 		<button type="button" class="btn btn-success btn-sm" style="float: right;margin-right: 1.5%"
-				onclick="location.href='<?= site_url('Noticia/cadastrarCategoria'); ?>'">
+				onclick="location.href='<?= site_url('Noticia/cadastrarNoticia'); ?>'">
 			Novo
 		</button>
 	</div>
@@ -9,32 +9,32 @@
 <BR/>
 <table id="example1" class="table table-bordered table-striped" style="text-align: center">
 	<thead>
-	<tr>
-		<th>Código</th>
-		<th>Nome</th>
-		<th>Categoria</th>
-		<th>Ações</th>
-	</tr>
+		<tr>
+			<th>Código</th>
+			<th>Nome</th>
+			<th>Descrição</th>
+			<th>Ações</th>
+		</tr>
 	</thead>
 	<tbody style="text-align: center">
 		<?php foreach ($dadosTabela AS $dados){ ?>
 			<tr>
 				<td>
-					<?= $dados['idCategoria'] ?>
+					<?= $dados['idNoticia'] ?>
 				</td>
 				<td>
-					<?= $dados['nomeCategoria'] ?>
+					<?= $dados['nome'] ?>
 				</td>
 				<td>
-					<?= $dados['nomeCategoria'] ?>
+					<?= $dados['descricao'] ?>
 				</td>
 				<td>
 					<div style="display: inline-block">
-						<a href="<?= site_url('Categoria/deletarCategoria/'.$dados['idCategoria']) ?>" type="button" class="btn btn-warning btn-sm editar" >
+						<a href="<?= site_url('Noticia/cadastrarNoticia/'.$dados['idNoticia']) ?>" type="button" class="btn btn-warning btn-sm editar" >
 							<i class="fa fa-paint-brush" aria-hidden="true"></i></a>
 					</div>
 					<div style="display: inline-block">
-						<a href="<?= site_url('Categoria/deletarCategoria/'.$dados['idCategoria']) ?>" type="button" class="btn btn-danger btn-sm excluir" >
+						<a href="<?= site_url('Noticia/deletarNoticia/'.$dados['idNoticia']) ?>" type="button" class="btn btn-danger btn-sm excluir" >
 							<i class="fa fa-trash" aria-hidden="true"></i></a>
 					</div>
 				</td>

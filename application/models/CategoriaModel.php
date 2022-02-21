@@ -24,6 +24,21 @@ class CategoriaModel extends MY_Model {
 		return ($ret);
 	}
 
+	public function getUltimasCategorias(){
+		$ret = $this->db->query("
+		 SELECT 
+		 	 idCategoria
+		 	,nomeCategoria
+		 FROM
+			categoria
+		 ORDER BY
+		 	idCategoria
+		 DESC
+		 LIMIT 5
+		")->result_array();
+
+		return ($ret);
+	}
 	/**
 	 * @param $idCategoria
 	 * @return mixed

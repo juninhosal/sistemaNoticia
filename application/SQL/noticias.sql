@@ -6,7 +6,6 @@ CREATE TABLE IF NOT EXISTS usuario (
     idUsuario INT NOT NULL AUTO_INCREMENT COMMENT 'PK da tabela de usuario',
     username VARCHAR(45) NOT NULL COMMENT 'Nome do usuário ',
 	password VARCHAR(250) NOT NULL COMMENT 'Senha do usuário',
-	dataUltimoLogin DATETIME NULL COMMENT 'Data do ultimo login do usuário',
 	PRIMARY KEY (idUsuario));
 
 
@@ -24,11 +23,10 @@ CREATE TABLE IF NOT EXISTS categoria (
 
 
 CREATE TABLE IF NOT EXISTS noticia (
-    idNoticia BIGINT NOT NULL COMMENT 'PK da tabela de noticia',
+    idNoticia BIGINT NOT NULL AUTO_INCREMENT COMMENT 'PK da tabela de noticia',
     idCategoria INT NOT NULL COMMENT 'FK da tabela de categoria',
     nome VARCHAR(45) NOT NULL COMMENT 'Nome da noticia',
 	descricao TEXT NOT NULL COMMENT 'Descrição da noticia',
-	imagem BLOB NULL COMMENT 'Imagem da noticia caso tenha',
 	PRIMARY KEY (idNoticia),
 	INDEX fk_noticia_categoria_idx (idCategoria ASC),
 	CONSTRAINT fk_noticia_categoria

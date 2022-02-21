@@ -4,75 +4,70 @@ class Noticia extends MY_Controller{
 
 	public function __construct() {
 		parent::__construct();
+		$this->load->model("NoticiaModel");
 		$this->load->model("CategoriaModel");
 	}
 
+	/**
+	 * @return void
+	 */
 	public function index() {
 		if (empty($_SESSION['id'])) {
 			redirect('Login');
 			exit(0);
-
 		}else{
 			$retorno = $this->getErro();
-			$dadosTabela = $this->CategoriaModel->getCategoria();
+			$dadosTabela = $this->NoticiaModel->getNoticias();
 			$this->template->set('title', 'Notícia');
 			$this->template->load('portalNoticia', 'noticia/listar', array(
 				'dadosTabela' => $dadosTabela,
 				'retorno' => $retorno
 			) );
 		}
-
 	}
 
 	/**
 	 * @return void
-	 * Função para listar todas as categorias cadastradas
 	 */
-	public function listar(){
-		$this->apenasAjax();
-		$params = $this->formatPOSTDataTable();
-
-		$ret = $this->CategoriaModel->lista($params);
-
-		echo json_encode($ret, true);
-
-		exit();
-	}
-
-	public function cadastrarCategoria(){
+	public function cadastrarNoticia($idNoticia = null){
 		if (empty($_SESSION['id'])) {
 			redirect('Login');
 			exit(0);
 
 		}else{
+			if(!empty($idNoticia)){
+				$dadosNoticia = $this->NoticiaModel->getNoticia($idNoticia);
+			}
 			$retorno = $this->getErro();
+			$dadosSelect= $this->CategoriaModel->getCategorias();
 			$this->template->set('title', 'Cadastrar Notícia');
 			$this->template->load('portalNoticia', 'noticia/cadastrar', array(
-				'retorno' => $retorno
+				'retorno' => $retorno,
+				'dadosSelect' => $dadosSelect,
+				"dadosNoticia" => !empty($dadosNoticia) ? $dadosNoticia : null
 			) );
 		}
 	}
 
-	public function cadastrar() {
+	/**
+	 * @return void
+	 */
+	public function cadastrar($idNoticia = null) {
 		if (empty($_SESSION['id'])) {
 
 			redirect('Login');
 			exit(0);
 
 		}else{
-			$dadosCategoria = array();
-			$i = 0;
+			$dadosNoticia = array();
+				$this->form_validation->set_rules("nome","Nome", "required|min_length[2]|max_length[250]");
+				$this->form_validation->set_rules("categoria","Categoria", "required");
+				$this->form_validation->set_rules("descricao","Descrição", "required|min_length[2]|max_length[250]");
 
-			foreach($this->input->post("categoria") AS $keycat => $categoria) {
-				$i++;
-				if($i === 1) {
-					continue;
-				}
-				$this->form_validation->set_rules("categoria[$keycat]","Categoria", "required|min_length[2]|max_length[250]");
-
-				$dadosCategoria[($i - 1)] = array(
-					'nomeCategoria' =>addslashes( $this->input->post("categoria")[$keycat]),
-					'idUsuario'     => $_SESSION['id'],
+			$dadosNoticia = array(
+					'nome' 			=>addslashes( $this->input->post("nome")),
+					'idCategoria' 	=>addslashes( $this->input->post("categoria")),
+					'descricao'	 	=>addslashes( $this->input->post("descricao")),
 				);
 			}
 			if($this->form_validation->run() == FALSE) {
@@ -82,13 +77,13 @@ class Noticia extends MY_Controller{
 				);
 				$mensagem = array(
 					'msg' => $msg,
-					'retorno'=> $dadosCategoria
+					'retorno'=> $dadosNoticia
 				);
 
 				$this->setErro($mensagem);
 
 			} else {
-				if($this->CategoriaModel->salvarCategoria($dadosCategoria)) {
+				if($this->NoticiaModel->salvarNoticia($dadosNoticia, $idNoticia)) {
 					$msg = array(
 						"class"     => "success",
 						"msg"  => "Cadastro feito com sucesso!"
@@ -105,27 +100,26 @@ class Noticia extends MY_Controller{
 					);
 					$mensagem = array(
 						'msg' => $msg,
-						'retorno'=> $dadosCategoria
+						'retorno'=> $dadosNoticia
 					);
 
 					$this->setErro($mensagem);
 				}
 			}
-			redirect('noticia/cadastrarCategoria');
+			redirect('Noticia/cadastrarNoticia');
 		}
-	}
 
 	/**
-	 * @param $idCategoria
+	 * @param $idNoticia
 	 * @return void
 	 * Função para deletar Categoria Cadastrada
 	 */
-	public function deletarCategoria($idCategoria){
-		$deletar = $this->CategoriaModel->deletarCategoria($idCategoria);
+	public function deletarNoticia($idNoticia){
+		$deletar = $this->NoticiaModel->deletarNoticia($idNoticia);
 		if($deletar == TRUE){
 			$msg = array(
 				"class"     => "success",
-				"msg"  => "<strong> Categoria excluida com sucesso! </strong>"
+				"msg"  => "<strong> Noticia excluida com sucesso! </strong>"
 			);
 			$mensagem = array(
 				'msg' => $msg,
