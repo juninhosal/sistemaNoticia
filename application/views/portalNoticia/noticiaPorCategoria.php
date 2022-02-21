@@ -9,7 +9,7 @@
 				<h2>Category</h2>
 				<ul class="vertical-menu">
 					<?php foreach ($categoria AS $item){ ?>
-						<li><a href="<?= site_url("PortalNoticia/NoticiaCategoria") . $item['idCategoria'] ?>"><?= $item['nomeCategoria'] ?></a></li>
+						<li><a href="<?= site_url("PortalNoticia/NoticiaCategoria/") . $item['idCategoria'] ?>"><?= $item['nomeCategoria'] ?></a></li>
 					<?php }?>
 				</ul>
 			</div>

@@ -26,7 +26,7 @@
 								<?php
 								foreach((!empty($dadosSelect) ? $dadosSelect : array()) AS $value) {
 									?>
-									<option value="<?= $value['idCategoria'] ?>" <?= ($dadosNoticia[0]['idCategoria'] == $value['idCategoria']) ? 'selected' : null;?>><?= $value['nomeCategoria'] ?></option>
+									<option value="<?= $value['idCategoria'] ?>" <?= (!empty($dadosNoticia[0]['idCategoria']) ? $dadosNoticia[0]['idCategoria'] : null == $value['idCategoria']) ? 'selected' : null;?>><?= $value['nomeCategoria'] ?></option>
 									<?php
 								}
 								?>
