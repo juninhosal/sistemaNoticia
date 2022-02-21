@@ -40,4 +40,7 @@ ENGINE = InnoDB;
 -- senha: admin
 INSERT INTO usuario (username, password) VALUE ('admin', '6a4e012bd9583858a5a6fa15f58bd86a25af266d3a4344f1ec2018b778f29ba83be86eb45e6dc204e11276f4a99eff4e2144fbe15e756c2c88e999649aae7d94');
 
-INSERT INTO categoria (nomeCategoria, idUsuario) VALUES ('Policial', 1),('Culinaria',1);
+INSERT INTO categoria (nomeCategoria, idUsuario) VALUES ('Anime', 1),('Culinaria',1);
+INSERT INTO noticia (idCategoria, nome, descricao) VALUES (1, 'Guia de Novos Animes de Janeiro 2022' ,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+														  (2, 'Espetinho de frango com brócolis', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.');
+
