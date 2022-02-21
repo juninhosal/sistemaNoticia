@@ -74,7 +74,7 @@
 							<BR/>
 							1º Não podemos aplicar OOP em todos os lugares, pois não é uma linguagem universal. É aplicado apenas quando necessário. Não é adequado para todos os tipos de problemas.
 							<BR/>
-							2º Tudo é tratado como objeto em OOP, portanto, antes de aplicá-lo, precisamos ter um excelente raciocínio em termos de objetos
+							2º Tudo é tratado como objeto em OOP, portanto, antes de aplicá-lo, precisamos ter um excelente raciocínio em termos de objetos.
 						</p>
 						<hr/>
 					</div>
@@ -101,6 +101,7 @@
 						<p class="mb-0">
 							2. What is the use of CORS?
 						</p>
+						<BR/>
 						<p class="mb-0" style="color: #ff0000 !important;">
 							O CORS (Cross-origin Resource Sharing) é um mecanismo utilizado pelos navegadores para compartilhar
 							recursos entre diferentes origens. O CORS é uma especificação do W3C e faz uso de headers do HTTP
@@ -111,11 +112,12 @@
 					<div class="col-sm-8  grid-margin" >
 						<p class="mb-0">
 							3. What is the difference between Cookie and Session?
+						</p>
+						<BR/>
 						<p class="mb-0" style="color: #ff0000 !important;">
 							Um cookie é um pequeno dado textual armazenado no lado do client, mais especificamente no browser.
 							<BR/>
 							Uma sessão são dados associados a um client armazenados no lado do server.
-						</p>
 						</p>
 						<hr/>
 					</div>
@@ -123,8 +125,11 @@
 						<p class="mb-0">
 							4. What is Responsive Web Design?
 						</p>
+						<BR/>
 						<p class="mb-0" style="color: #ff0000 !important;">
-							Web desing responsivo é
+							Web desing responsivo é responsável por fazer as paginas renderizarem bem em uma variedade de
+							dispositivos e tamanhos de janelas diferentes que tem no mercado, assim fazendo o seu site ser acessivel
+							em qualquer que está sendo exibida.
 						</p>
 						<hr/>
 					</div>
@@ -135,11 +140,23 @@
 						<p class="mb-0">
 							1. What is a join in MySQL?
 						</p>
+						<BR/>
+						<p class="mb-0" style="color: #ff0000 !important;">
+							O join é uma função que faz a vombinação de duas ou mais tabelas do seu banco de dados utilizando as foreign key.
+						</p>
 						<hr/>
 					</div>
 					<div class="col-sm-8  grid-margin" >
 						<p class="mb-0">
 							2. What is the difference between primary key and unique key?
+						</p>
+						<BR/>
+						<p class="mb-0" style="color: #ff0000 !important;">
+							A primary key além de garantir a unicidade de informações do seu banco de dados e pode ser utilziada
+							para relacionamentos pelas foreign key.
+							<BR/>
+							A Unique key também garante a unicidade de informações porem ela não pode ser relacionadas como
+							foreing key
 						</p>
 						<hr/>
 					</div>
@@ -147,17 +164,34 @@
 						<p class="mb-0">
 							3. What is the difference between the primary key and the foreign key?
 						</p>
+						<BR/>
+						<p class="mb-0" style="color: #ff0000 !important;">
+							A primary key serve para garantir a unicidade de informações, quando as foreign key serve para promover
+							os relacionamentos entre tabelas.
+						</p>
 						<hr/>
 					</div>
 					<div class="col-sm-8  grid-margin" >
 						<p class="mb-0">
 							4. What is the difference between LIKE and REGEXP operators in MySQL?
 						</p>
+						<BR/>
+						<p class="mb-0" style="color: #ff0000 !important;">
+							REGEXP serve para trazer as informações exatas que você está procurando, já o LIKE irá trazer todas as informações que
+							contem aquela palavra procurada
+						</p>
 						<hr/>
 					</div>
 					<div class="col-sm-8  grid-margin" >
 						<p class="mb-0">
 							5. What are the types of joins in MySQL?
+						</p>
+						<BR/>
+						<p class="mb-0" style="color: #ff0000 !important;">
+							Os tipos de Joins do mysql são:
+							<BR/>
+							Inner join, Left join, Right join, Cross join e Full join.
+							<BR/>
 						</p>
 						<hr/>
 					</div>
