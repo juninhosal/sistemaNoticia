@@ -12,13 +12,32 @@ class CategoriaModel extends MY_Model {
 	 * @return mixed
 	 * Função para pegar todas as categorias cadastradas
 	 */
-	public function getCategoria(){
+	public function getCategorias(){
 		$ret = $this->db->query("
 		 SELECT 
 		 	 idCategoria
 		 	,nomeCategoria
 		 FROM
 			categoria
+		")->result_array();
+
+		return ($ret);
+	}
+
+	/**
+	 * @param $idCategoria
+	 * @return mixed
+	 * Função para alterar a categoria
+	 */
+	public function getAlterarCategoria($idCategoria){
+		$ret = $this->db->query("
+		 SELECT 
+		 	 idCategoria
+		 	,nomeCategoria
+		 FROM
+			categoria
+		WHERE 
+			idCategoria = '$idCategoria'
 		")->result_array();
 
 		return ($ret);

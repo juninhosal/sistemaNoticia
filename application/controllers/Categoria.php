@@ -14,7 +14,7 @@ class Categoria extends MY_Controller{
 
 		}else{
 			$retorno = $this->getErro();
-			$dadosTabela = $this->CategoriaModel->getCategoria();
+			$dadosTabela = $this->CategoriaModel->getCategorias();
 			$this->template->set('title', 'Categoria');
 			$this->template->load('portalNoticia', 'categoria/listar', array(
 				'dadosTabela' => $dadosTabela,
@@ -26,24 +26,12 @@ class Categoria extends MY_Controller{
 
 	/**
 	 * @return void
-	 * Função para listar todas as categorias cadastradas
+	 * Tela de cadastro de categoria
 	 */
-	public function listar(){
-		$this->apenasAjax();
-		$params = $this->formatPOSTDataTable();
-
-		$ret = $this->CategoriaModel->lista($params);
-
-		echo json_encode($ret, true);
-
-		exit();
-	}
-
 	public function cadastrarCategoria(){
 		if (empty($_SESSION['id'])) {
 			redirect('Login');
 			exit(0);
-
 		}else{
 			$retorno = $this->getErro();
 			$this->template->set('title', 'Cadastrar Categoria');
@@ -53,6 +41,10 @@ class Categoria extends MY_Controller{
 		}
 	}
 
+	/**
+	 * @return void
+	 * requisição para adicionar as categorias cadastrada
+	 */
 	public function cadastrar() {
 		if (empty($_SESSION['id'])) {
 
@@ -118,7 +110,7 @@ class Categoria extends MY_Controller{
 	/**
 	 * @param $idCategoria
 	 * @return void
-	 * Função para deletar Categoria Cadastrada
+	 * Função para deletar Categoria
 	 */
 	public function deletarCategoria($idCategoria){
 		$deletar = $this->CategoriaModel->deletarCategoria($idCategoria);

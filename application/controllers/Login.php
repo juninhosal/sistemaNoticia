@@ -58,7 +58,12 @@ class Login extends MY_Controller{
 		}
 		redirect('Login');
 		exit(0);
+	}
 
+	public function deslogar(){
+		@session_destroy();
+		redirect('Login');
+		exit(0);
 	}
 
 }
