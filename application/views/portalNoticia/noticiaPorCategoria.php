@@ -1,3 +1,7 @@
+<form id="FormEnviar" method="post" action="<?= site_url('Noticia/cadastrar')?>">
+
+</form>
+
 <div class="row" data-aos="fade-up">
 	<div class="col-lg-3 stretch-card grid-margin">
 		<div class="card">
@@ -5,7 +9,7 @@
 				<h2>Category</h2>
 				<ul class="vertical-menu">
 					<?php foreach ($categoria AS $item){ ?>
-						<li><a href="<?= site_url("PortalNoticia/NoticiaCategoria/") . $item['idCategoria'] ?>"><?= $item['nomeCategoria'] ?></a></li>
+						<li><a href="<?= site_url("PortalNoticia/NoticiaCategoria") . $item['idCategoria'] ?>"><?= $item['nomeCategoria'] ?></a></li>
 					<?php }?>
 				</ul>
 			</div>
@@ -15,7 +19,7 @@
 		<div class="card">
 			<div class="card-body" style="text-align: center; padding-left: 250px">
 				<div class="row">
-					<?php foreach ($ultimasNoticias AS $noticias){ ?>
+					<?php foreach ($noticiaCategoria AS $noticias){ ?>
 						<div class="col-sm-8  grid-margin" >
 							<h2 class="mb-2 font-weight-600">
 								<?= $noticias['nome'] ?>

@@ -7,34 +7,35 @@
 	</div>
 </div>
 <BR/>
-<table id="example1" class="table table-bordered table-striped" style="text-align: center">
-	<thead>
-	<tr>
-		<th>Código</th>
-		<th>Categoria</th>
-		<th>Ações</th>
-	</tr>
-	</thead>
-	<tbody style="text-align: center">
-		<?php foreach ($dadosTabela AS $dados){ ?>
-			<tr>
-				<td>
-					<?= $dados['idCategoria'] ?>
-				</td>
-				<td>
-					<?= $dados['nomeCategoria'] ?>
-				</td>
-				<td>
-					<div style="display: inline-block">
-						<a href="<?= site_url('Categoria/deletarCategoria/'.$dados['idCategoria']) ?>" type="button" class="btn btn-danger btn-sm excluir" >
-							<i class="fa fa-trash" aria-hidden="true"></i></a>
-					</div>
-				</td>
-			</tr>
-		<?php }?>
-		</tbody>
-</table>
-
+<div class="table-responsive">
+	<table id="example1" class="table table-bordered table-striped" style="text-align: center">
+		<thead>
+		<tr>
+			<th>Código</th>
+			<th>Categoria</th>
+			<th>Ações</th>
+		</tr>
+		</thead>
+		<tbody style="text-align: center">
+			<?php foreach ($dadosTabela AS $dados){ ?>
+				<tr>
+					<td style="width: 50px">
+						<?= $dados['idCategoria'] ?>
+					</td>
+					<td>
+						<?= $dados['nomeCategoria'] ?>
+					</td>
+					<td>
+						<div style="display: inline-block">
+							<a href="<?= site_url('Categoria/deletarCategoria/'.$dados['idCategoria']) ?>" type="button" class="btn btn-danger btn-sm excluir" >
+								<i class="fa fa-trash" aria-hidden="true"></i></a>
+						</div>
+					</td>
+				</tr>
+			<?php }?>
+			</tbody>
+	</table>
+</div>
 <script>
 	$(function () {
 		$("#example1").DataTable({

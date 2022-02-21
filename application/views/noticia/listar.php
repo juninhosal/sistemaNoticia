@@ -7,42 +7,43 @@
 	</div>
 </div>
 <BR/>
-<table id="example1" class="table table-bordered table-striped" style="text-align: center">
-	<thead>
-		<tr>
-			<th>Código</th>
-			<th>Nome</th>
-			<th>Descrição</th>
-			<th>Ações</th>
-		</tr>
-	</thead>
-	<tbody style="text-align: center">
-		<?php foreach ($dadosTabela AS $dados){ ?>
+<div class="table-responsive">
+	<table id="example1" class="table table-bordered table-striped" style="text-align: center">
+		<thead>
 			<tr>
-				<td>
-					<?= $dados['idNoticia'] ?>
-				</td>
-				<td>
-					<?= $dados['nome'] ?>
-				</td>
-				<td>
-					<?= $dados['descricao'] ?>
-				</td>
-				<td>
-					<div style="display: inline-block">
-						<a href="<?= site_url('Noticia/cadastrarNoticia/'.$dados['idNoticia']) ?>" type="button" class="btn btn-warning btn-sm editar" >
-							<i class="fa fa-paint-brush" aria-hidden="true"></i></a>
-					</div>
-					<div style="display: inline-block">
-						<a href="<?= site_url('Noticia/deletarNoticia/'.$dados['idNoticia']) ?>" type="button" class="btn btn-danger btn-sm excluir" >
-							<i class="fa fa-trash" aria-hidden="true"></i></a>
-					</div>
-				</td>
+				<th>Código</th>
+				<th>Nome</th>
+				<th>Descrição</th>
+				<th>Ações</th>
 			</tr>
-		<?php }?>
-		</tbody>
-</table>
-
+		</thead>
+		<tbody style="text-align: center">
+			<?php foreach ($dadosTabela AS $dados){ ?>
+				<tr>
+					<td style="width: 50px">
+						<?= $dados['idNoticia'] ?>
+					</td>
+					<td>
+						<?= $dados['nome'] ?>
+					</td>
+					<td style="width: 450px">
+						<?= $dados['descricao']?>
+					</td>
+					<td>
+						<div style="display: inline-block">
+							<a href="<?= site_url('Noticia/cadastrarNoticia/'.$dados['idNoticia']) ?>" type="button" class="btn btn-warning btn-sm editar" >
+								<i class="fa fa-paint-brush" aria-hidden="true"></i></a>
+						</div>
+						<div style="display: inline-block">
+							<a href="<?= site_url('Noticia/deletarNoticia/'.$dados['idNoticia']) ?>" type="button" class="btn btn-danger btn-sm excluir" >
+								<i class="fa fa-trash" aria-hidden="true"></i></a>
+						</div>
+					</td>
+				</tr>
+			<?php }?>
+			</tbody>
+	</table>
+</div>
 <script>
 	$(function () {
 		$("#example1").DataTable({

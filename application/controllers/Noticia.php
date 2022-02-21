@@ -65,9 +65,9 @@ class Noticia extends MY_Controller{
 				$this->form_validation->set_rules("descricao","Descrição", "required|min_length[2]|max_length[250]");
 
 			$dadosNoticia = array(
-					'nome' 			=>addslashes( $this->input->post("nome")),
-					'idCategoria' 	=>addslashes( $this->input->post("categoria")),
-					'descricao'	 	=>addslashes( $this->input->post("descricao")),
+					'nome' 			=> addslashes( $this->input->post("nome")),
+					'idCategoria' 	=> addslashes( $this->input->post("categoria")),
+					'descricao'	 	=> addslashes( $this->input->post("descricao")),
 				);
 			}
 			if($this->form_validation->run() == FALSE) {
